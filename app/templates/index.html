@@ -1,0 +1,19 @@
+
+
+{% extends "base.html" %}
+{% block content %}
+<h1>Hi, {{ user.nickname }}!</h1>
+{% for post in posts %}
+<div><p>{{ post.author.nickname }} says: <b>{{ post.body }}</b></p></div>
+{% endfor %}
+<script type="text/javascript">
+	var posts = {{posts | tojson |safe }};
+	console.log(posts);
+  var user = {{user | tojson | safe }};
+  console.log(user);
+</script>
+
+{% endblock %}
+
+
+
