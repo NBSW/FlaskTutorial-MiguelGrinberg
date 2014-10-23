@@ -23,6 +23,9 @@ def index():
 
 @app.route('/user/<username>')
 def user(username):
+	user = {'nickname': 'Miguel', 'name':'MM'}
+	if len(username) >0:
+		user['nickname']  = username
 	posts = [  # fake array of posts
 	    { 
 	        'author': {'nickname': 'John'}, 
@@ -33,4 +36,4 @@ def user(username):
 	        'body': 'The Avengers movie was so cool!' 
 	    }
 	]
-	return render_template("index.html", user=username, posts = posts)
+	return render_template("index.html", user=user, posts = posts)
